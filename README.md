@@ -17,4 +17,5 @@ kubectl get deployments --all-namespaces | grep -i test | awk '{print $2}' | xar
 Удалить все поды из namespace kube-system - объяснить почему все pod восстанавливаются после удаления. (core-dns и, например, kube-apiserver, имеют различия в механизме запуска и восстанавливаются по разным причинам)
 
 Coredns управляется deploymentом и следит за количеством реплик
+
 kube-apiserver - поды запускаются непосредственно kubeletом посредством конфигов  /etc/kubernetes/manifests. Если  под удалён, kubelet обнаруживает отсутствие файла в состоянии и автоматически пересоздаёт его.
